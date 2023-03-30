@@ -1,98 +1,125 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-body,html{
+body,
+html {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     width: 100%;
     height: 100%;
     background-color: rgb(239, 224, 241);
 }
-.form_container{
-   display: flex;
-   align-items: center;
-    width: 70%;
-    height: 70vh;
-    font-size: 1.3em;
-    background-color: white;
-    text-align: center;
-    border-radius: 20px;
-    box-sizing:content-box;
-
-}
-/* .form2,.form3{
-    display: none;
-} */
-
-.form_menu{
-    font-size: 1.3em;
-    width: 20vw;
-    height: 95%;
-    background-color: red;
-    margin:1%;
-    border-radius: 20px;
-    color: white;
-
-}
-.form_menu>img{
-    width: 100%;
-    border-radius: 15px 15px 0 0;
-}
-
-.form_menu>p{
-    margin-top: 30px;
-    font-size: max(20px, 2vw);/*pegao maior valor entre os 2. O vw é baseao no tamanho da tela
-    , e chega um momento em que ele diminui muito, aí nesse caso o valor em pixels o supera.*/
-}
-
-h1{
-    font-size:xxx-large;
+h1 {
+    font-size: xxx-large;
     font-weight: bold;
     margin-bottom: 1%;
 }
 
-.form1,.form2,.form3,.form4{
-    font-size: max(20px,1.2vw);
+.form_container {
+   
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    width: 80%;
-    height: 100%;
-}
-form>input{
     width: 60%;
-    height: 5%;
-    border: none;
-    border-bottom: 1px solid;
-    font-size: 25px;
+    height: max(200px, 50vh);
+    font-size: 1.3em;
+    background-color: white;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 3px 3px 15px rgba(77, 77, 77, .8);
+
 }
 
-.container_btn{
+
+
+.form_menu {
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+    height: 95%;
+    background-color: red;
+    /* background-image: url(/images/background2_menu.jpg); */
+    margin: 0 1%;
+    border-radius: 20px;
+    color: rgba(210, 210, 210, 0.714);
+    justify-content: space-between;
+
+}
+
+.form_menu>img {
+    width: 100%;
+    height: 50%;
+    position: relative;
+    margin: 0;
+    /* top: 10%; */
+}
+
+.form_menu>p {
+    position: relative;
+    margin-top: 10%;
+    font-size: max(20px, 1.5vw);
+    /*pegao maior valor entre os 2. O vw é baseao no tamanho da tela
+    , e chega um momento em que ele diminui muito, aí nesse caso o valor em pixels o supera.*/
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 80%;
+    margin-left: 10%;
+    
+}
+
+.form {
+    display: none;
+}
+
+.formVisible {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+}
+
+section>input{
+    width: 80%;
+    font-size: max(15px,1vw);
+    border: none;
+    border-bottom: 1px solid;
+    
+}
+
+.container_btn {
     display: flex;
     justify-content: end;
     width: 100%;
 }
 
-button:hover{
+button:hover {
     cursor: pointer;
-    background-color:  rgb(239, 224, 241);
+    background-color: rgb(239, 224, 241);
     transition: all 0.6s;
     font-size: 0.8em;
 }
-.container_btn>button{
-    margin:5% 5% 0 0;
+
+.container_btn>button {
+    margin: 5% 5% 0 0;
     list-style: none;
-    width: max(100px,2vw);
-    height: max(50px,6vh);
-    
+    width: max(100px, 2vw);
+    height: max(30px, 6vh);
+
 }
+
 input:focus {
     box-shadow: 0 0 0 0;
     border: 0 none;
     border-bottom: 1px solid black;
     outline: 0;
-} 
+}

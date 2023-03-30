@@ -1,27 +1,18 @@
-let form1 = document.querySelector(".form1");
-let form2 = document.querySelector(".form2");
-let form3 = document.querySelector(".form3");
-let next_btn = document.querySelector(".next_btn");
-let p = document.getElementsByTagName("p");
-form2.style.display="none"
-form3.style.display="none"
-p[0].style.color = "blue"
+const slides = document.querySelectorAll("[data-action='form']");
+const next_btn = document.querySelector(".next_btn");
+
+let current_formIndex = 0;
 
 next_btn.addEventListener("click", function (e) {
+    current_formIndex++;
     e.preventDefault();
-    if (form1) {
-        form1.style.display = "none"
-        form2.style.display = "flex"
-        p[0].style.color=""
-        p[1].style.color = "blue"
-        console.log("foi pro 2")
-        
-    }
 
-    // if (form2) {
-    //     form2.style.display = "none";
-    //     form1.style.display = "block";
-    //     console.log("foi pro 3")
+    slides.forEach(_form => {
+        _form.classList.remove("formVisible")
+    })
 
-    // }
+    slides[current_formIndex].classList.add("formVisible");
+    console.log(current_formIndex);
+
+    console.log("clicou")
 })

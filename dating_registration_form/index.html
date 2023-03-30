@@ -17,54 +17,47 @@
     <div class="form_container">
 
       <section class="form_menu">
-        <img src="images/coracao.jpg" alt="">
-        <p>passo 1</p>
-        <p>passo 2</p>
-        <p>passo 3</p>
-        <p>passo 4</p>
+        <p>informações pessoais</p>
+        <p>contato</p>
+        <p>selecione seu plano</p>
+        <img src="images/carta_b_w.png" alt="">
       </section>
 
-      <form class="form1" action="#">
-        <label for="">Nome</label>
-        <input type="text">
-        <label for="">E-mail</label>
-        <input type="email" name="" id="">
-        <label for="">Telefone</label>
-        <input type="tel" name="" id="">
+      <form action="#">
+        <section data-action='form' class="form formVisible">
+          <label for="">Nome</label>
+          <input type="text" placeholder="ex: Fulana da Silva">
+          <label for="">idade</label>
+          <input type="number" min="18" placeholder="ex: 20" id="">
+          <label for="" title="sexo ou genero">Eu sou</label>
+          <input type="text" placeholder="ex: mulher" id="">
+          <label for="" title="sexo ou genero">Tenho preferência por</label>
+          <input type="text" placeholder="ex: sem preferência" id="">
+        </section>
+
+        <section data-action='form' class="form">
+          <label for="">E-mail</label>
+          <input type="email" placeholder="fulana_da_silva@gmail.com">
+          <label for="">Telefone</label>
+          <input type="tel" placeholder="11999999999" id="">
+          <label for="">endereço</label>
+          <input type="text" placeholder="rua um, numero 2, casa 3, São Paulo,Sp" id="">
+        </section>
+
+        <section data-action='form' class="form">
+          <label for="">outro</label>
+          <input type="text">
+          <label for="">outro</label>
+          <input type="email" name="" id="">
+          <label for="">outro</label>
+          <input type="text">
+        </section>
 
         <div class="container_btn">
-          <button class="next_btn">próximo</button>
+          <button type="button" class="next_btn">próximo</button>
         </div>
       </form>
-
-      <form class="form2" action="#">
-        <label for="">idade</label>
-        <input type="text">
-        <label for="">sexo</label>
-        <input type="email" name="" id="">
-        <label for="">preferência</label>
-
-        <div class="container_btn">
-          <button class="next_btn">próximo</button>
-        </div>
-      </form>
-
-      <form class="form3" action="#">
-        <label for="">outro</label>
-        <input type="text">
-        <label for="">outro</label>
-        <input type="email" name="" id="">
-        <label for="">outro</label>
-
-        <div class="container_btn">
-          <button class="next_btn">próximo</button>
-        </div>
-      </form>
-
-      
-
     </div>
-
 
     <footer>
 
