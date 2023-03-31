@@ -12,19 +12,19 @@
       />
   </head>
 
-  <body>
+  <body class="body">
     <h1> preencha o formulário You-Date</h1>
+    
     <div class="form_container">
-
-      <section class="form_menu">
-        <p>informações pessoais</p>
+      <section class="section_menu">
+        <p>dados pessoais</p>
         <p>contato</p>
         <p>selecione seu plano</p>
-        <img src="images/carta_b_w.png" alt="">
+        <img class="letter" src="images/carta_b_w.png" alt="letter with heart">
       </section>
 
       <form action="#">
-        <section data-action='form' class="form formVisible">
+        <section data-action='section' class="section sectionVisible">
           <label for="">Nome</label>
           <input type="text" placeholder="ex: Fulana da Silva">
           <label for="">idade</label>
@@ -35,7 +35,7 @@
           <input type="text" placeholder="ex: sem preferência" id="">
         </section>
 
-        <section data-action='form' class="form">
+        <section data-action='section' class="section">
           <label for="">E-mail</label>
           <input type="email" placeholder="fulana_da_silva@gmail.com">
           <label for="">Telefone</label>
@@ -44,16 +44,25 @@
           <input type="text" placeholder="rua um, numero 2, casa 3, São Paulo,Sp" id="">
         </section>
 
-        <section data-action='form' class="form">
-          <label for="">outro</label>
-          <input type="text">
-          <label for="">outro</label>
-          <input type="email" name="" id="">
-          <label for="">outro</label>
-          <input type="text">
+        <section data-action='section' class="section">
+          <label for="">plano 1: Grátis / 2 meses</label>
+          <input type="checkbox">
+          <label for="">Plano 2: R$ 22,90 / mês</label>
+          <input type="checkbox">
+          <label for="">Plano 3: R$ 30,99 / mês</label>
+          <input type="checkbox">
+          <input type="button" value="sobre os planos" class="aboult">
         </section>
+        <div class="details">
+          <span id="close" class="material-symbols-outlined">
+            close
+            </span>
+
+            <img src="images/completa.jpg" alt="">        
+        </div>
 
         <div class="container_btn">
+          <button type="button" class="before_btn">voltar</button>
           <button type="button" class="next_btn">próximo</button>
         </div>
       </form>

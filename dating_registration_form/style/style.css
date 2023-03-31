@@ -23,8 +23,8 @@ h1 {
    
     display: flex;
     align-items: center;
-    width: 60%;
-    height: max(200px, 50vh);
+    width: 40%;
+    height: max(200px, 40vh);
     font-size: 1.3em;
     background-color: white;
     text-align: center;
@@ -35,31 +35,23 @@ h1 {
 
 
 
-.form_menu {
+.section_menu {
     display: flex;
     flex-direction: column;
     width: 25vw;
     height: 95%;
     background-color: red;
-    /* background-image: url(/images/background2_menu.jpg); */
-    margin: 0 1%;
+    /* background-image: url(/images/background_menu.jpg); */
+    margin: 0 0 0 1%;
     border-radius: 20px;
-    color: rgba(210, 210, 210, 0.714);
-    justify-content: space-between;
+    color: rgba(208, 208, 208, 0.696);
+    justify-content: space-evenly;
 
 }
 
-.form_menu>img {
-    width: 100%;
-    height: 50%;
+.section_menu>p {
     position: relative;
-    margin: 0;
-    /* top: 10%; */
-}
-
-.form_menu>p {
-    position: relative;
-    margin-top: 10%;
+    margin-top: 2%;
     font-size: max(20px, 1.5vw);
     /*pegao maior valor entre os 2. O vw é baseao no tamanho da tela
     , e chega um momento em que ele diminui muito, aí nesse caso o valor em pixels o supera.*/
@@ -74,11 +66,11 @@ form{
     
 }
 
-.form {
+.section {
     display: none;
 }
 
-.formVisible {
+.sectionVisible {
     
     display: flex;
     flex-direction: column;
@@ -88,17 +80,83 @@ form{
     height: 100%;
 }
 
-section>input{
+section>input[type="text"],section>input[type="number"],section>input[type="email"],section>input[type="tel"]{
     width: 80%;
     font-size: max(15px,1vw);
     border: none;
     border-bottom: 1px solid;
+}
+
+form>:nth-child(3){ 
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
     
+}
+form>:nth-child(3)>label{ 
+    
+    font-size: max(13px,1.2vw);
+    font-weight: bold;
+    /* margin-right:120px ; */
+}
+section>input[type="checkbox"]{
+    width: 100%;
+    position: relative;
+    bottom: 15%;
+    left: 25%;
+    margin-left: 10%;
+}
+
+.details{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    z-index: 99999;
+    top:0rem;
+    right:0rem;
+    /* animation: details .4s; */
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+
+.details>img{
+    animation: details .4s;
+}
+@keyframes details {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -100px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+#close{
+    position: relative;
+    font-size: 1.8em;
+    bottom: 5%;
+    background-color: white;
+}
+#close:hover{
+    cursor: pointer;
+}
+
+img {
+    width: 60%;
+    height: 20%;
+    position: relative;
+    margin: 0 auto;
 }
 
 .container_btn {
     display: flex;
-    justify-content: end;
+    justify-content: space-evenly;
     width: 100%;
 }
 
@@ -110,10 +168,14 @@ button:hover {
 }
 
 .container_btn>button {
-    margin: 5% 5% 0 0;
+   
     list-style: none;
-    width: max(100px, 2vw);
-    height: max(30px, 6vh);
+    width: 100%;
+    max-width: 100px;
+    height: max(10px, 6vh);
+    border-color: red;
+    position: relative;
+    margin: 10% 10% 0 0 ;
 
 }
 
