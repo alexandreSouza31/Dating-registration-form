@@ -2,27 +2,21 @@ const slides = document.querySelectorAll("[data-action='section']");
 const next_btn = document.querySelector(".next_btn");
 const before_btn = document.querySelector(".before_btn");
 
-let current_sectionIndex = 0;
-if (current_sectionIndex === 0) {
-    const p = document.getElementsByTagName("p");
-    p[0].style.color = "white";
-    p[0].style.fontWeight = "bold";
-    p[0].style.fontStyle = "italic";
-}
+let name = document.querySelector(".name");
+let age = document.querySelector(".age");
+let gender = document.querySelector(".gender");
+let pref = document.querySelector(".pref");
+let email = document.querySelector(".email");
+let tel = document.querySelector(".tel");
+let address = document.querySelector(".address");
 
-next_btn.addEventListener("click", function (e) {
-    if (current_sectionIndex === slides.length - 1) {
-        // current_sectionIndex = 0; //serve pra caso eu quisesse voltar pro início. Não é o caso.
-        return;
-    } else {
-        current_sectionIndex++;
-    }
-    e.preventDefault();
+let current_sectionIndex = 0;
+
+function nextRender() {
     slides.forEach(_section => {
         _section.classList.remove("sectionVisible");
 
         if (current_sectionIndex === 0) {
-            const p = document.getElementsByTagName("p");
             p[0].style.color = "white";
             p[0].style.fontWeight = "bold";
             p[0].style.fontStyle = "italic";
@@ -47,29 +41,19 @@ next_btn.addEventListener("click", function (e) {
         }
         if (current_sectionIndex === 2) {
             const p = document.getElementsByTagName("p");
-            // p[0].style.color = "";não preciso do 2º pois  passo pelo 1º e é ele quem faz o meio de campo
-            // p[0].style.fontWeight = "";
-            // p[0].style.fontStyle = "";
             p[1].style.color = "";
             p[1].style.fontWeight = "";
             p[1].style.fontStyle = "";
             p[2].style.color = "white";
             p[2].style.fontWeight = "bold";
             p[2].style.fontStyle = "italic";
-
         }
     })
     slides[current_sectionIndex].classList.add("sectionVisible");
     console.log(current_sectionIndex);
-})
+}
 
-const clickBefore = before_btn.addEventListener("click", function (e) {
-    if (current_sectionIndex === 0) {
-        slides.length - 1;
-    } else {
-        current_sectionIndex--;
-    }
-    e.preventDefault();
+function beforeRender() {
     slides.forEach(_section => {
         _section.classList.remove("sectionVisible");
 
@@ -112,6 +96,34 @@ const clickBefore = before_btn.addEventListener("click", function (e) {
     })
     slides[current_sectionIndex].classList.add("sectionVisible");
     console.log(current_sectionIndex);
+}
+
+const clickNext = next_btn.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    if (validaCampos()) {
+        console.log("parou")
+        return
+    } else {
+
+        if (current_sectionIndex === slides.length - 1) {
+            // current_sectionIndex = 0; //serve pra caso eu quisesse voltar pro início. Não é o caso.
+            return;
+        } else {
+            current_sectionIndex++;
+        }
+        nextRender()
+    }
+})
+
+const clickBefore = before_btn.addEventListener("click", function (e) {
+    if (current_sectionIndex === 0) {
+        slides.length - 1;
+    } else {
+        current_sectionIndex--;
+    }
+    e.preventDefault();
+    beforeRender();
 })
 
 const aboult = document.querySelector(".aboult");
@@ -123,9 +135,8 @@ const clickAboult = aboult.addEventListener("click", () => {
 
 })
 
-const close = document.querySelector("#close");
+const close = document.querySelector(".details");
 close.addEventListener("click", () => {
     details.style.display = "none";
 })
-
 
