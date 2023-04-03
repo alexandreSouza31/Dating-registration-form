@@ -12,7 +12,9 @@ html {
     width: 100%;
     height: 100%;
     background-color: rgb(239, 224, 241);
+    min-height: 100vh;
 }
+
 h1 {
     font-size: xxx-large;
     font-weight: bold;
@@ -20,18 +22,17 @@ h1 {
 }
 
 .form_container {
-   
     display: flex;
     align-items: center;
     width: 45%;
-    /* height: max(200px, 40vh); */
     height: 60%;
     font-size: 1.3em;
     background-color: white;
+    background-image: url("../images/main_background_media-XL.jpg");
     text-align: center;
     border-radius: 20px;
     box-shadow: 3px 3px 15px rgba(77, 77, 77, .8);
-
+    margin: 0 auto;
 }
 
 .section_menu {
@@ -39,9 +40,9 @@ h1 {
     flex-direction: column;
     width: 25vw;
     height: 95%;
-    background-color: red;
-    /* background-image: url(/images/background_menu.jpg); */
     margin: 0 0 0 1%;
+    border: 2px solid white;
+    border-left: none;
     border-radius: 20px;
     color: rgba(208, 208, 208, 0.696);
     justify-content: space-evenly;
@@ -55,12 +56,16 @@ h1 {
     , e chega um momento em que ele diminui muito, aí nesse caso o valor em pixels o supera.*/
 }
 
-form{
+.section_menu>p:hover {
+    cursor: pointer;
+}
+
+form {
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 80%;
-    margin-left: 10%; 
+    margin-left: 10%;
 }
 
 .section {
@@ -76,46 +81,53 @@ form{
     height: 100%;
 }
 
-section>input[type="text"],section>input[type="number"],section>input[type="email"],section>input[type="tel"]{
+section>input[type="text"],
+section>input[type="number"],
+section>input[type="email"],
+section>input[type="tel"] {
     width: 80%;
-    font-size: max(15px,1vw);
+    font-size: max(15px, 1vw);
     border: none;
     border-bottom: 1px solid;
 }
 
-form>:nth-child(3){ 
+form>:nth-child(3) {
     width: 100%;
 }
 
-form>section>label{    
-    font-size: max(17px,1.1vw);
+form>section>label {
+    color: white;
+    -webkit-text-stroke: .5px #000;
+    font-size: max(17px, 1.1vw);
     font-weight: bold;
+    font-family: sans-serif;
 }
 
-form>:nth-child(3)>label{ 
-    color:black;
-    font-size: max(20px,1.2vw);
+form>:nth-child(3)>label {
+    color: white;
+    font-size: max(20px, 1.2vw);
+    font-weight: bold;
     font-style: italic;
 }
 
-form>:nth-child(3)>label:nth-child(1){ 
-    color:green;
+form>:nth-child(3)>label:nth-child(1) {
+    color: rgb(46, 210, 46);
 }
 
-section>input[type="checkbox"]{
+section>input[type="checkbox"] {
     width: 100%;
     position: relative;
     bottom: 12%;
     margin-left: 35%;
 }
 
-.details{
+.details {
     display: none;
     flex-direction: column;
     position: absolute;
     z-index: 99999;
-    top:0rem;
-    right:0rem;
+    top: 0rem;
+    right: 0rem;
     background-color: rgba(0, 0, 0, 0.5);
     align-items: center;
     justify-content: center;
@@ -123,27 +135,33 @@ section>input[type="checkbox"]{
     height: 100vh;
 }
 
-.details>img{
+.details>img {
     animation: details .4s;
+    width: 50%;
+    height: 50%;
 }
+
 @keyframes details {
     from {
-      opacity: 0;
-      transform: translate3d(0, -100px, 0);
+        opacity: 0;
+        transform: translate3d(0, -100px, 0);
     }
+
     to {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
     }
-  }
-  
-#close{
-    position: relative;
-    font-size: 1.8em;
-    bottom: 5%;
-    background-color: white;
 }
-#close:hover{
+
+#close {
+    position: relative;
+    font-size: 1.25em;
+    bottom: 0.5%;
+    background-color: rgba(255, 255, 255, 0.188);
+    animation: details .4s;
+}
+
+#close:hover {
     cursor: pointer;
 }
 
@@ -185,7 +203,9 @@ input:focus {
     outline: 0;
 }
 
-#feedbackSuccess,#feedbackError{
+#feedbackSuccess,
+#feedbackError {
+    display: none;
     position: fixed;
     left: 1rem;
     top: 1rem;
@@ -193,120 +213,158 @@ input:focus {
     border-radius: 5px;
     font-weight: bold;
     justify-content: center;
-    display: flex;
     padding: 1rem;
     align-items: center;
     font-size: 2em;
     transform: translateY(calc(-2rem - 100%));
     transition: transform .3s;
-    height: 10%;
-}
-#feedbackSuccess{
-    background-color: #59ce36;
-    color: #215113;
+    height: max(80px, 1);
+    animation: details .4s;
 }
 
-#feedbackError{
+#feedbackSuccess {
+    flex-direction: column;
+    background-color: #333333;
+    color: rgb(46, 210, 46);
+}
+
+#feedbackSuccess>image {
+    width: max(1920px);
+    height: 100%;
+    margin: 0 auto;
+}
+
+#feedbackError {
     background-color: #ef9595;
     color: #652f2f;
 }
-#feedbackSuccess p,#feedbackError p{
+
+#feedbackSuccess p,
+#feedbackError p {
     margin: .5em auto;
 }
-#feedbackSuccess button,#feedbackError button{
+
+#feedbackSuccess button,
+#feedbackError button {
     background-color: transparent;
     border: none;
-    font-size: 1.25em;
-    
 }
-#feedbackSuccess button{
+
+#feedbackSuccess button {
     color: #215113;
 }
 
-#feedbackError button{
+#feedbackError button {
     color: #652f2f;
 }
 
-#feedbackSuccess.show{
+#feedbackSuccess.showSuccess {
     transform: translateY(0px);
 }
 
-#feedbackSuccess.show2{
-    transform:translateY(0px);
+#feedbackError.showError {
+    transform: translateY(0px);
 }
 
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 4.5%;
+    background-color: #000;
+    color: white;
+    position: relative;
+    top: 14%;
+}
 
-@media(max-width:980px){
+@media(max-width:1300px) {
     .form_container {
-   
-        display: flex;
+        background-image: url("../images/main_background_media-L.jpg");
+    }
+    section>input[type="checkbox"] {
+        bottom: 0%;
+        margin-left: 0;
+        margin: 0 auto;
+    }
+}
+
+@media(max-width:870px) {
+    .form_container {
         flex-direction: column;
-        align-items: center;
         width: 100%;
         height: 100%;
-        background-color: white;
-        text-align: center;
-        border-radius:0;
+        background-image: url("../images/main_background_media-M.jpg");
+        border-radius: 0;
         box-shadow: none;
     }
+
     .section_menu {
-        display: flex;
         flex-direction: row;
         width: 100%;
         height: 5%;
-        /* background-image: url(/images/background_menu.jpg); */
-        margin:1% auto;
+        margin: 1% auto;
+        border-right:none;
+        border-top: none;
+        border-bottom: none;
+        border-bottom: 1px solid white;
         border-radius: 0;
-        color: rgba(208, 208, 208, 0.696);
         justify-content: space-evenly;
-        align-items: center;
     }
-    
+
     .section_menu>p {
         margin-top: 0%;
     }
 
-    form{
-        display: flex;
-        width: 100%;
-        height: 80%;
-        margin-left: 0; 
-    }
-    
-    .sectionVisible {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
+    form {
+        margin-left: 0;
     }
 
-    section>input[type="text"],section>input[type="number"],section>input[type="email"],section>input[type="tel"]{
+    .sectionVisible {
+        align-items: center;
+    }
+
+    section>input[type="text"],
+    section>input[type="number"],
+    section>input[type="email"],
+    section>input[type="tel"] {
         width: 80%;
         border: none;
         border-bottom: 1px solid;
     }
 
-    form>:nth-child(3)>label:nth-child(1){ 
-        color:green;
-    }
-    
-    section>input[type="checkbox"]{
+    section>input[type="checkbox"] {
         bottom: 0%;
         margin-left: 0;
     }
 
     img {
         width: 100%;
-        height: 20%;
+        height: 15%;
     }
-    
+
     .container_btn>button {
-        margin: 0 ;    
+        margin: 0;
     }
 
     button:hover {
-        background-color:white;
+        background-color: white;
         transition: none;
     }
+}
 
+@media(max-width:660px) {
+    .form_container {
+        background-image: url("../images/main_background_media-S.jpg");
+    }
+    .details img{
+        width: 100%;
+        height: 60%;
+    }
+}
+
+@media(max-width:400px) {
+    .form_container {
+        background-image: url("../images/main_background_media-Smaller.jpg");
+    }
 }

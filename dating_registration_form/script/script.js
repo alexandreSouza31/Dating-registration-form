@@ -1,4 +1,5 @@
 const slides = document.querySelectorAll("[data-action='section']");
+const input = document.querySelectorAll("[data-action='input']");
 const next_btn = document.querySelector(".next_btn");
 const before_btn = document.querySelector(".before_btn");
 
@@ -10,26 +11,41 @@ let email = document.querySelector(".email");
 let tel = document.querySelector(".tel");
 let address = document.querySelector(".address");
 
-//let check = document.querySelectorAll("[data-action='chk']");
 let check1 = document.querySelector(".chk1");
 let check2 = document.querySelector(".chk2");
 let check3 = document.querySelector(".chk3");
-
 
 let current_sectionIndex = 0;
 nextRender()
 beforeRender()
 
-function preencheDados() { //
-    name.value = "joao";
-    age.value = 20;
-    gender.value = "m";
-    pref.value = "f";
-    email.value = "p@gm";
-    tel.value = 999999999;
-    address.value = "f";
+//menus como sendo links
+const p = document.getElementsByTagName("p");
+const p0Clicked = p[0].addEventListener("click", () => {
+    current_sectionIndex = 0;
+    beforeRender()
+    next_btn.disabled = false;
+});
+
+const p1Clicked = p[1].addEventListener("click", () => {
+    current_sectionIndex = 1;
+    beforeRender()
+    next_btn.disabled = false;
+});
+const p2Clicked = p[2].addEventListener("click", () => {
+    current_sectionIndex = 2;
+    beforeRender();
+    next_btn.disabled = true;
+});
+
+function noCheckedNoDisabled() {
+    check1.checked = false
+    check2.checked = false
+    check3.checked = false
+    check1.disabled = false
+    check2.disabled = false
+    check3.disabled = false
 }
-preencheDados()
 
 function nextRender() {
     slides.forEach(_section => {
@@ -43,9 +59,7 @@ function nextRender() {
             p[1].style.color = "";
             p[1].style.fontWeight = "";
             p[1].style.fontStyle = "";
-            // p[2].style.color = "";não preciso do 0 pois  passo pelo 1º e é ele quem faz o meio de campo
-            // p[2].style.fontWeight = "";
-            // p[2].style.fontStyle = "";
+            noCheckedNoDisabled()
         }
         if (current_sectionIndex === 1) {
 
@@ -58,7 +72,9 @@ function nextRender() {
             p[2].style.color = "";
             p[2].style.fontWeight = "";
             p[2].style.fontStyle = "";
+            noCheckedNoDisabled()
         }
+
         if (current_sectionIndex === 2) {
 
             const p = document.getElementsByTagName("p");
@@ -69,18 +85,12 @@ function nextRender() {
             p[2].style.color = "white";
             p[2].style.fontWeight = "bold";
             p[2].style.fontStyle = "italic";
+            noCheckedNoDisabled()
         }
         if (current_sectionIndex === 3) {
-
-            const container = document.querySelector(".form_container");
-            const h1 = document.querySelector(".h1");
             next_btn.style.display = "none";
             before_btn.style.display = "none";
-            //container.style.display = "none";
-            h1.style.display = "none";
-            showSuccessMessage(`cadastro realizado com sucesso, ${name.value}! Em breve
-            você receberá um email com as instruções para o
-            pagamento`);
+            showSuccessMessage();
             current_sectionIndex = 0;
             p[1].style.color = "";
             p[1].style.fontWeight = "";
@@ -106,9 +116,10 @@ function beforeRender() {
             p[1].style.color = "";
             p[1].style.fontWeight = "";
             p[1].style.fontStyle = "";
-            // p[2].style.color = "";não preciso do 2º pois  passo pelo 1º e é ele quem faz o meio de campo
-            // p[2].style.fontWeight = "";
-            // p[2].style.fontStyle = "";
+            p[2].style.color = "";
+            p[2].style.fontWeight = "";
+            p[2].style.fontStyle = "";
+            noCheckedNoDisabled();
         }
         if (current_sectionIndex === 1) {
             const p = document.getElementsByTagName("p");
@@ -121,12 +132,13 @@ function beforeRender() {
             p[2].style.color = "";
             p[2].style.fontWeight = "";
             p[2].style.fontStyle = "";
+            noCheckedNoDisabled();
         }
         if (current_sectionIndex === 2) {
             const p = document.getElementsByTagName("p");
-            // p[0].style.color = ""; não preciso do 0 pois passo pelo 1º e é ele quem faz o meio de campo
-            // p[0].style.fontWeight = "";
-            // p[0].style.fontStyle = "";
+            p[0].style.color = "";
+            p[0].style.fontWeight = "";
+            p[0].style.fontStyle = "";
             p[1].style.color = "";
             p[1].style.fontWeight = "";
             p[1].style.fontStyle = "";
@@ -140,7 +152,6 @@ function beforeRender() {
 
 const clickNext = next_btn.addEventListener("click", function (e) {
     e.preventDefault();
-
 
     if (validaCurrent0() || validaCurrent1()) {
         return
@@ -173,47 +184,39 @@ const body = document.getElementsByTagName("body")
 
 const clickAboult = aboult.addEventListener("click", () => {
     details.style.display = "flex";
-
 })
 
-const close = document.querySelector(".details");
-close.addEventListener("click", () => {
+const closeDetails = document.querySelector(".details");
+closeDetails.addEventListener("click", () => {
     details.style.display = "none";
 })
 
-const p = document.getElementsByTagName("p");
-p[0].addEventListener("click", () => {
-    current_sectionIndex = 0;
-    beforeRender()
-
-});
-
-
 function validaCurrent0() {
     if (name.value == "" || age.value == "" || gender.value == "" || pref.value == "") {
-        alert("preencha os dados pessoais corretamente");
+        showErrorMessage("preencha os dados pessoais corretamente");
         return true;
     }
 }
 function validaCurrent1() {
     if (email.value == "" && current_sectionIndex === 1 || tel.value == "" &&
         current_sectionIndex === 1 || address.value == "" && current_sectionIndex === 1) {
-        alert("preencha o contato corretamente");
-        return true;
+        showErrorMessage("preencha o contato corretamente");
+        return true
     }
-}
+}    
 
+let checado = "";
 function checou() {
-    
-    check1.addEventListener("click", function () {
-        const checado = check1.checked;
 
+    check1.addEventListener("click", function () {
+
+        checado = check1.checked;
         if (current_sectionIndex === 2) {
             if (checado) {
                 next_btn.disabled = false;
                 check2.disabled = true;
                 check3.disabled = true;
-                console.log("habilitado")
+                console.log("habilitado");
             } else {
                 console.log("desabilitado");
                 next_btn.disabled = true;
@@ -223,7 +226,7 @@ function checou() {
         }
     })
     check2.addEventListener("click", function () {
-        const checado = check2.checked;
+        checado = check2.checked;
         if (current_sectionIndex === 2) {
             if (checado) {
                 next_btn.disabled = false;
@@ -239,7 +242,7 @@ function checou() {
         }
     })
     check3.addEventListener("click", function () {
-        const checado = check3.checked;
+        checado = check3.checked;
         if (current_sectionIndex === 2) {
             if (checado) {
                 next_btn.disabled = false;
@@ -257,14 +260,70 @@ function checou() {
 }
 checou();
 
+//aparecer mensagem de sucesso
 const feedbackSuccess = document.getElementById("feedbackSuccess");
 function showSuccessMessage(msg) {
-    feedbackSuccess.classList.add("show");
+    feedbackSuccess.classList.add("showSuccess");
+    feedbackSuccess.style.display = "flex";
+
+    if (check1.checked) {
+        msg = `Cadastro concluído com sucesso, ${name.value}! Você já pode aproveitar seus 2 meses Grátis!`
+    } else if (check2.checked) {
+        msg = `Cadastro concluído com sucesso, ${name.value}! Você receberá um email para prosseguir com o pagamento de 22,90/mês`
+    } else if (check3.checked) {
+        msg = `Cadastro concluído com sucesso, ${name.value}! Você receberá um email para prosseguir com o pagamento de 30,99/mês`
+    }
     feedbackSuccess.querySelector("#p-feedbackS").textContent = msg;
+    name.value = "";
+    age.value = "";
+    gender.value = "";
+    pref.value = "";
 }
-    
+
+//aparecer mensagem de erro
 const feedbackError = document.getElementById("feedbackError");
 function showErrorMessage(msg) {
-    feedbackError.classList.add("show2");
+    feedbackError.classList.add("showError");
+    feedbackError.style.display = "flex";
     feedbackError.querySelector("#p-feedbackE").textContent = msg;
-    }
+}
+
+//desaparecer msg de sucesso pela própria div
+feedbackSuccess.addEventListener("click", () => {
+    feedbackSuccess.classList.remove("showSuccess");
+    feedbackError.style.display = "";
+    next_btn.style.display = "";
+    before_btn.style.display = "";
+    input.forEach(_input => {
+        _input.focus();
+    })
+})
+
+//desaparecer msg de sucesso pelo clique do input
+input.forEach(_input => {
+    _input.addEventListener("click", () => {
+        feedbackSuccess.classList.remove("showSuccess");
+        feedbackError.style.display = "";
+        next_btn.style.display = "";
+        before_btn.style.display = "";
+    })
+})
+
+//desaparecer a msg de erro pela própria div
+feedbackError.addEventListener("click", () => {
+    feedbackError.classList.remove("showError");
+    next_btn.style.display = "";
+    before_btn.style.display = "";
+    input.forEach(_input => {
+        _input.focus();
+    })
+})
+
+//desaparecer a msg de erro pelo clique no input
+input.forEach(_input => {
+    _input.addEventListener("click", () => {
+        feedbackError.classList.remove("showError");
+        next_btn.style.display = "";
+        before_btn.style.display = "";
+    })
+})
