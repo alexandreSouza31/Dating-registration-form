@@ -18,9 +18,9 @@ beginner project of a 3 page dating site registration form.
 
 ### Screenshot
 
-![](/design/home_page.png)
-![](/design/choose_plan_on_mobile_devices.png)
-![](/design/registration_completed_message.png)
+![home_page](https://user-images.githubusercontent.com/112407769/229405626-30bf3823-69ee-431f-b497-f7d6f43ca753.png)
+![choose_plan_on_mobile_devices](https://user-images.githubusercontent.com/112407769/229405620-97feb716-9ffb-4e15-a6b4-abb8cd6b5d42.png)
+![registration_completed_message](https://user-images.githubusercontent.com/112407769/229405641-f71e1045-1794-443f-ad2b-414254ebc87d.png)
 
 ## My process
 
