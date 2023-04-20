@@ -1,4 +1,4 @@
-# Dating registration form
+# date registration form
 
 beginner project of a 3 page dating site registration form.
 
