@@ -169,6 +169,8 @@ It also inspired me in this form project.
 
 Enter the command```git clone https://github.com/alexandreSouza31/date-registration-form``` in the terminal, or if you prefer, download it by clicking on the green button called "Code" in this project's repository, and then, "Download zip.
 
+run index.html
+
 #### Deploy
 
 If you want to see the application running without having to download it, go to
