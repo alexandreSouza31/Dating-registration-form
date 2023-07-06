@@ -164,6 +164,18 @@ the use of foreach, flexbox, tag name references in JS, clean code, refactoring.
 - [Frontend Mentor](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ) - Frontend Mentor helped me build the foundation of readme.md and I will be using it going forward.
 It also inspired me in this form project.
 
+### How to run the code? 
+ Cloning/downloading the project
+
+Enter the command```git clone https://github.com/alexandreSouza31/date-registration-form``` in the terminal, or if you prefer, download it by clicking on the green button called "Code" in this project's repository, and then, "Download zip.
+
+#### Deploy
+
+If you want to see the application running without having to download it, go to
+- [Vercel](https://to-do-list-ten-bay.vercel.app/) - Website used to host the application.
+
+:)
+
 ## Author
 - LinkdIn - Alexandre Mariano(https://www.linkedin.com/in/alexandresouza31/)
 
